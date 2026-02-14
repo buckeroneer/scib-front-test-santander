@@ -1,0 +1,51 @@
+<div class="home-container">
+  <h1>Candidates</h1>
+  <button
+    (click)="navigateToCreateCandidate()"
+    class="create-button"
+    mat-button
+  >
+    Create new candidate
+  </button>
+  <div class="candidates-table">
+    <mat-table [dataSource]="CANDIDATE_DUMMY">
+      <!-- Candidate name -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Candidate name </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          {{ row.name + " " + row.surname }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Seniority -->
+      <ng-container matColumnDef="seniority">
+        <mat-header-cell *matHeaderCellDef> Seniority </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.seniority }} </mat-cell>
+      </ng-container>
+
+      <!-- Years of Experience -->
+      <ng-container matColumnDef="years">
+        <mat-header-cell *matHeaderCellDef>
+          Years of Experience
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.years }} </mat-cell>
+      </ng-container>
+
+      <!-- Availability -->
+      <ng-container matColumnDef="availability">
+        <mat-header-cell *matHeaderCellDef> Availability </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.availability }} </mat-cell>
+      </ng-container>
+
+      <!-- Header and Row Declarations -->
+      <mat-header-row *matHeaderRowDef="headerRowsDef"></mat-header-row>
+      <mat-row (click)="viewCandidateDetails(row)" *matRowDef="let row; columns: headerRowsDef"></mat-row>
+    </mat-table>
+    <mat-paginator
+      [pageSizeOptions]="pageSizeOptions"
+      showFirstLastButtons
+      aria-label="Select page of candidates table"
+    >
+    </mat-paginator>
+  </div>
+</div>
