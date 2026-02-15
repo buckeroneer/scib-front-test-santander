@@ -5,15 +5,15 @@
         <h3>{{ candidate.name + " " + candidate.surname }}</h3>
       </mat-card-title>
       <mat-card-content class="card-view-container">
-        <div class="data-container">
+        <div class="data-content">
           <span class="label">Seniority</span>
           <span>{{ candidate.seniority }}</span>
         </div>
-        <div class="data-container">
+        <div class="data-content">
           <span class="label">Years of Experience</span>
           <span>{{ candidate.years }}</span>
         </div>
-        <div class="data-container">
+        <div class="data-content">
           <span class="label">Availability</span>
           <span>{{
             candidate.availability ? "Available" : "Unavailable"

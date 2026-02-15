@@ -27,7 +27,7 @@ export class CrudBase<T, ID> implements CrudOperations<T, ID> {
       .pipe(catchError((error) => throwError(() => error)));
   }
 
-  create(o: T, params?: HttpParams) {
+  create(o: any, params?: HttpParams) {
     return this._http
       .post<T>(this.baseUrl, o, { params })
       .pipe(catchError((error) => throwError(() => error)));

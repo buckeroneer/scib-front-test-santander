@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CrudBase } from '../shared/crud-base';
+import { CrudBase } from '@shared/classes/crud-base';
 import { Candidate } from '@candidate/models/candidate.model';
 
 @Injectable({

@@ -4,6 +4,7 @@ import { PagedResponse } from "./paged-response.model";
 
 export interface CrudOperations<T, ID> {
     findOne(id?: ID): Observable<T>;
+    create(o: any): Observable<T>;
     findAllPaged(params?: HttpParams): Observable<PagedResponse<T>>
     create(o: T, params?: HttpParams): Observable<T>;
 }

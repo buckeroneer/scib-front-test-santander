@@ -25,7 +25,8 @@
       "@candidate/*": ["./src/app/components/candidate/*"],
       "@home/*": ["./src/app/components/home/*"],
       "@services/*": ["./src/app/services/*"],
-      "@models/*": ["./src/models/*"]
+      "@models/*": ["./src/models/*"],
+      "@shared/*": ["./src/app/shared/*"]
     }
   },
   "include": ["src/**/*"],

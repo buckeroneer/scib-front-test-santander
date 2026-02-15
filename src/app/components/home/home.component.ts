@@ -9,7 +9,7 @@ import {
 import { MatSortModule } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { Candidate } from '@candidate/models/candidate.model';
-import { CandidatesService } from '@services/candidates.service';
+import { CandidatesService } from '@services/candidates/candidates.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CandidateDataSource } from './data-definitions/candidate-data-source';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -52,11 +52,6 @@ export class HomeComponent {
     this.router.navigate([`/candidate/${candidate.id}`]);
   }
 
-  processPagination(event: PageEvent) {
-    console.log(event);
-    this.dataSource.loadCandidates(event.pageIndex + 1, event.pageSize);
-  }
-
   ngAfterViewInit() {
     this.paginator.page
       .pipe(takeUntilDestroyed(this.destroyRef))
@@ -65,7 +60,7 @@ export class HomeComponent {
 
   loadCandidatesPage() {
     this.dataSource.loadCandidates(
-      this.paginator.pageIndex,
+      this.paginator.pageIndex + 1,
       this.paginator.pageSize,
     );
   }

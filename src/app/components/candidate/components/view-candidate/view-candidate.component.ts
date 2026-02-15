@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { CandidatesService } from '@services/candidates.service';
+import { CandidatesService } from '@services/candidates/candidates.service';
 import { map, switchMap } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
 

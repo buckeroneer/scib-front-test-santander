@@ -1,1 +1,61 @@
-<p>create-candidate works!</p>
+<mat-card
+  [formGroup]="candidateForm"
+  class="create-candidate-container"
+  appearance="outlined"
+>
+  <mat-card-title class="card-title">
+    <h3>Create new candidate</h3>
+  </mat-card-title>
+  <mat-card-content class="card-content">
+    <div class="data-content">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input id="name" matInput formControlName="name" required />
+        @if (getFormControl("name").invalid) {
+          <mat-error>{{ errorMessage }}</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Surname</mat-label>
+        <input id="surname" matInput formControlName="surname" required />
+        @if (getFormControl("surname").invalid) {
+          <mat-error>{{ errorMessage }}</mat-error>
+        }
+      </mat-form-field>
+      <div class="file-upload-container">
+        @if (loadingExcelUpload()) {
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        }
+        @if (this.uploadedFile) {
+          <span>Filename: {{ this.uploadedFile.name }}</span>
+        }
+        <input
+          #xlsxInput
+          hidden="true"
+          id="file"
+          type="file"
+          onclick="this.value = null"
+          (change)="csvInputChange($event)"
+          (cancel)="loadingExcelUpload.set(false)"
+          [accept]="excelAcceptTypes"
+        />
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="loadingExcelUpload.set(true); xlsxInput.click()"
+        >
+          Choose Excel File
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-footer class="card-footer">
+    <button
+      (click)="submit()"
+      [disabled]="checkActiveSubmitButton()"
+      mat-stroked-button
+    >
+      Create candidate
+    </button>
+  </mat-card-footer>
+</mat-card>
