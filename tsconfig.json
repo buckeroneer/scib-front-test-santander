@@ -15,14 +15,16 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
+    "strictPropertyInitialization": false,
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
     "types": ["node", "jest"],
     "paths": {
+      "@environments/*": ["./src/environments/*"],
       "@candidate/*": ["./src/app/components/candidate/*"],
       "@home/*": ["./src/app/components/home/*"],
-      "@services/*": ["./src/app/components/services/*"],
+      "@services/*": ["./src/app/services/*"],
       "@models/*": ["./src/models/*"]
     }
   },

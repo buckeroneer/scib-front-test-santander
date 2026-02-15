@@ -8,6 +8,17 @@
     align-self: flex-end;
   }
 
+  .candidates-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+    .table-paginator {
+      width: 100%;
+    }
+  }
+
   .mat-mdc-row .mat-mdc-cell {
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;

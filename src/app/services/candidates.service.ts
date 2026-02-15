@@ -1,0 +1,13 @@
+import { Injectable } from '@angular/core';
+import { CrudBase } from '../shared/crud-base';
+import { Candidate } from '@candidate/models/candidate.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CandidatesService extends CrudBase<Candidate, number> {
+  private static ENDPOINT = 'candidates';
+  constructor() { 
+    super(CandidatesService.ENDPOINT)
+  }
+}

@@ -1,1 +1,27 @@
-<p>edit-candidate works!</p>
+<div class="candidate-container">
+  @if (candidateData$ | async; as candidate) {
+    <mat-card class="data-container" appearance="outlined">
+      <mat-card-title class="card-title">
+        <h3>{{ candidate.name + " " + candidate.surname }}</h3>
+      </mat-card-title>
+      <mat-card-content class="card-view-container">
+        <div class="data-container">
+          <span class="label">Seniority</span>
+          <span>{{ candidate.seniority }}</span>
+        </div>
+        <div class="data-container">
+          <span class="label">Years of Experience</span>
+          <span>{{ candidate.years }}</span>
+        </div>
+        <div class="data-container">
+          <span class="label">Availability</span>
+          <span>{{
+            candidate.availability ? "Available" : "Unavailable"
+          }}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  } @else {
+    <h1>No data found</h1>
+  }
+</div>
