@@ -12,14 +12,14 @@ export const routes: Routes = [
       {
         path: ':id',
         loadComponent: () =>
-          import('@candidate/components/view-candidate/view-candidate.component').then(
+          import('./components/view-candidate/view-candidate.component').then(
             (m) => m.ViewCandidateComponent,
           ),
       },
       {
         path: '',
         loadComponent: () =>
-          import('@candidate/components/create-candidate/create-candidate.component').then(
+          import('./components/create-candidate/create-candidate.component').then(
             (m) => m.CreateCandidateComponent,
           ),
       },

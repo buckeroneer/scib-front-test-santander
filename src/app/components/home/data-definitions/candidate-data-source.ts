@@ -1,6 +1,6 @@
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { HttpParams } from '@angular/common/http';
-import { Candidate } from '@candidate/models/candidate.model';
+import { Candidate } from '../../../../models/candidate.model';
 import { CandidatesService } from '@services/candidates/candidates.service';
 import {
   BehaviorSubject,

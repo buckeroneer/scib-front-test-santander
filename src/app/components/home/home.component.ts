@@ -8,7 +8,7 @@ import {
 } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { Router } from '@angular/router';
-import { Candidate } from '@candidate/models/candidate.model';
+import { Candidate } from '@models/candidate.model';
 import { CandidatesService } from '@services/candidates/candidates.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CandidateDataSource } from './data-definitions/candidate-data-source';

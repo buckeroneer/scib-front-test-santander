@@ -22,14 +22,13 @@
     "types": ["node", "jest"],
     "paths": {
       "@environments/*": ["./src/environments/*"],
-      "@candidate/*": ["./src/app/components/candidate/*"],
       "@home/*": ["./src/app/components/home/*"],
       "@services/*": ["./src/app/services/*"],
       "@models/*": ["./src/models/*"],
       "@shared/*": ["./src/app/shared/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "./setup-jest.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

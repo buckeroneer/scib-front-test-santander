@@ -47,8 +47,8 @@ export class CreateCandidateComponent {
   uploadedFile: File | null;
 
   candidateForm = this.fb.group({
-    name: this.fb.control(null, [Validators.required]),
-    surname: this.fb.control(null, [Validators.required]),
+    name: this.fb.control('', [Validators.required]),
+    surname: this.fb.control('', [Validators.required]),
   });
 
   loadingExcelUpload = signal(false);
