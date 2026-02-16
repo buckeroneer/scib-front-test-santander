@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, DestroyRef, inject, signal } from '@angular/core';
+import { Component, DestroyRef, effect, inject, signal } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -22,6 +22,7 @@ import { CandidatesService } from '@services/candidates/candidates.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
+import { ProgressSpinnerService } from '@services/progress-spinner.service';
 
 @Component({
   selector: 'app-create-candidate',
@@ -42,7 +43,18 @@ export class CreateCandidateComponent {
   private readonly router = inject(Router);
   private readonly candidatesService = inject(CandidatesService);
   private readonly snackBarService = inject(SnackbarService);
+  private readonly spinnerService = inject(ProgressSpinnerService);
   private readonly destroyRef = inject(DestroyRef);
+
+  constructor() {
+    effect(() => {
+      if(this.loadingExcelUpload()) {
+        this.spinnerService.openLoadDialog();
+      } else {
+        this.spinnerService.closeLoadDialog();
+      }
+    })
+  }
 
   uploadedFile: File | null;
 

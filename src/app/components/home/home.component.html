@@ -8,9 +8,6 @@
     Create new candidate
   </button>
   <div class="candidates-table">
-    @if (dataSource.loading$ | async) {
-      <mat-spinner class="loading-spinner"></mat-spinner>
-    }
     <mat-table matSort [dataSource]="dataSource">
       <!-- Candidate name -->
       <ng-container matColumnDef="name">

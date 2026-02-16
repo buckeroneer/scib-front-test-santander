@@ -23,9 +23,6 @@
         }
       </mat-form-field>
       <div class="file-upload-container">
-        @if (loadingExcelUpload()) {
-          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        }
         @if (this.uploadedFile) {
           <span>Filename: {{ this.uploadedFile.name }}</span>
         }
